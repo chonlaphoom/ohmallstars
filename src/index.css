@@ -1,5 +1,20 @@
 @import 'tailwindcss';
 
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-family: 'JetBrains Mono', monospace;
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+  --color-gray-700: #374151;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-300: #d1d5db;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -16,4 +31,35 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+  
+  body {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Subtle terminal glow effect for headings and important text */
+  h1, h2, h3 {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark h1, .dark h2, .dark h3 {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 1.2em;
+  font-weight: 300;
+  animation: blink 1s infinite;
 }
