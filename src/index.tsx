@@ -7,6 +7,7 @@ import { render } from 'solid-js/web';
 import App from './app';
 import { Router } from '@solidjs/router';
 import { routes } from './routes';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const root = document.getElementById('root');
 
@@ -17,15 +18,19 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement) || root === null) {
 }
 
 render(
-	() => <Router root={(props) => {
-		const children = props.children as Element | undefined;
-		if (!children) {
-			throw new Error(
-				'Router component is missing its children. Did you forget to wrap your routes with the App component?',
-			);
-		}
+	() => (
+		<ThemeProvider>
+			<Router root={(props) => {
+				const children = props.children as Element | undefined;
+				if (!children) {
+					throw new Error(
+						'Router component is missing its children. Did you forget to wrap your routes with the App component?',
+					);
+				}
 
-		return (<App>{children}</App>)
-	}}>{routes}</Router>,
+				return (<App>{children}</App>)
+			}}>{routes}</Router>
+		</ThemeProvider>
+	),
 	root,
 );

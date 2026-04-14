@@ -1,33 +1,18 @@
 import { Suspense, type Component } from 'solid-js';
-import { A } from '@solidjs/router';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App: Component<{ children: Element }> = (props) => {
 	return (
-		<>
-			<nav class="bg-gray-200 text-gray-900 px-4">
-				<ul class="flex items-center">
-					<li class="py-2 px-4">
-						<A href="/" class="no-underline hover:underline">
-							Home
-						</A>
-					</li>
-					<li class="py-2 px-4">
-						<A href="/about" class="no-underline hover:underline">
-							About
-						</A>
-					</li>
-					<li class="py-2 px-4">
-						<A href="/error" class="no-underline hover:underline">
-							Error
-						</A>
-					</li>
-				</ul>
-			</nav>
-
-			<main>
+		<div class="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
+			<Header />
+			
+			<main class="flex-grow">
 				<Suspense>{props.children}</Suspense>
 			</main>
-		</>
+			
+			<Footer />
+		</div>
 	);
 };
 
