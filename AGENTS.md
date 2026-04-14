@@ -70,4 +70,3 @@ src/
 - **LinkedIn iframe error**: Console shows `getInstalledRelatedApps()` error from LinkedIn embeds - this is harmless, third-party issue, not fixable on our side
 - **Accessibility**: Skip-to-content link, proper ARIA labels, `.sr-only` utility class for screen readers
 - **ASCII borders**: Use `hidden sm:block` to hide box borders on mobile (prevents overflow/breaking)
-
