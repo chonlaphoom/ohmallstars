@@ -63,3 +63,46 @@
   font-weight: 300;
   animation: blink 1s infinite;
 }
+
+/* Custom scrollbar for LinkedIn posts container */
+.linkedin-posts-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-400) var(--color-gray-100);
+  scroll-behavior: smooth;
+}
+
+.dark .linkedin-posts-container {
+  scrollbar-color: var(--color-gray-600) var(--color-gray-800);
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.linkedin-posts-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.linkedin-posts-container::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: 4px;
+}
+
+.dark .linkedin-posts-container::-webkit-scrollbar-track {
+  background: var(--color-gray-800);
+}
+
+.linkedin-posts-container::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 4px;
+}
+
+.dark .linkedin-posts-container::-webkit-scrollbar-thumb {
+  background: var(--color-gray-600);
+}
+
+.linkedin-posts-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+.dark .linkedin-posts-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+

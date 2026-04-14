@@ -36,22 +36,21 @@ const Header: Component = () => {
 							</A>
 						</li>
 					</ul>
-
-					<A href="/" class="flex-shrink-0 ml-2">
-						<img
-							src="/favicon.jpeg"
-							alt="Home"
-							class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-100 transition-colors"
-						/>
-					</A>
+					<ProfileImage />
 				</nav>
 			</Container>
 		</header>
 	);
 };
 
-function isActive(path: string): boolean {
-	return window.location.pathname === path;
+const ProfileImage: Component = () => {
+	return <A href="/" class="flex-shrink-0 ml-2">
+		<img
+			src="/favicon.jpeg"
+			alt="Home"
+			class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-100 transition-colors"
+		/>
+	</A>
 }
 
 export default Header;

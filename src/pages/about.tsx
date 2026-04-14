@@ -2,10 +2,10 @@ export default function About() {
 	return (
 		<div class="max-w-4xl mx-auto px-6 py-16">
 			<div class="space-y-16">
-			<section>
-				<h1 class="text-3xl font-light text-gray-900 dark:text-gray-100 mb-2 cursor-blink">About</h1>
-				<p class="text-gray-600 dark:text-gray-400">A bit about me</p>
-			</section>
+				<section>
+					<h1 class="text-3xl font-light text-gray-900 dark:text-gray-100 mb-2 cursor-blink">About</h1>
+					<p class="text-gray-600 dark:text-gray-400">A bit about me</p>
+				</section>
 
 				<section class="space-y-4">
 					<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -61,14 +61,14 @@ export default function About() {
 					</ul>
 				</section>
 
-			<section class="pt-8 border-t border-gray-200 dark:border-gray-700">
-				<h2 class="text-xl text-gray-900 dark:text-gray-100 mb-4">Get In Touch</h2>
-				<p class="text-gray-700 dark:text-gray-300">
-					<a href="mailto:your.email@example.com" class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
-						your.email@example.com
-					</a>
-				</p>
-			</section>
+				<section class="pt-8 border-t border-gray-200 dark:border-gray-700">
+					<h2 class="text-xl text-gray-900 dark:text-gray-100 mb-4">Get In Touch</h2>
+					<p class="text-gray-700 dark:text-gray-300">
+						<a href="mailto:your.email@example.com" class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
+							chonlaphoomth@gmail.com
+						</a>
+					</p>
+				</section>
 			</div>
 		</div>
 	);
