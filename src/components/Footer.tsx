@@ -1,18 +1,19 @@
 import type { Component } from 'solid-js';
 import { useTheme } from '../contexts/ThemeContext';
+import Container from './Container';
 
 const Footer: Component = () => {
 	return (
 		<footer class="border-t border-gray-200 dark:border-gray-700 mt-auto bg-gray-50 dark:bg-gray-950 transition-colors">
-			<div class="max-w-4xl mx-auto px-6 py-12">
+			<Container class="py-12">
 				<div class="text-center space-y-6">
-					<div class="flex justify-between items-center max-w-md mx-auto">
+					<div class="flex justify-between items-center">
 						<SocialLinks />
 						<ToggleThemeButton />
 					</div>
 					<AllRightsReserved />
 				</div>
-			</div>
+			</Container>
 		</footer>
 	);
 };
