@@ -26,7 +26,7 @@ src/
 ├── index.tsx          # entry, wraps app with ThemeProvider
 ├── app.tsx            # layout: Header + main + Footer
 ├── routes.ts          # route definitions (lazy-loaded except Home)
-├── components/        # Header, Footer (modular)
+├── components/        # Header, Footer, Container (modular)
 ├── contexts/          # ThemeContext (localStorage-persisted)
 ├── pages/             # route components
 └── errors/            # 404 page
@@ -34,7 +34,7 @@ src/
 
 - **Routing**: Home eager-loaded, all others lazy via `lazy()`
 - **Theme**: Context-based dark/light toggle in Footer, persisted to localStorage
-- **Layout**: All pages centered with `max-w-4xl`, minimal design
+- **Layout**: All pages use shared `Container` component with `max-w-4xl mx-auto px-6` for consistent alignment
 
 ## Design System
 
@@ -57,5 +57,4 @@ src/
 ## Gotchas
 
 - No linting, formatting, or test scripts configured
-- Both `pnpm-lock.yaml` and `package-lock.json` present (template artifact)
-- `src/pages/contact.tsx` exists but unused (Contact merged into About page)
+- **Container component**: Header and Footer both use shared `Container` component to ensure alignment - don't use raw `max-w-4xl mx-auto px-6` divs
