@@ -20,7 +20,7 @@ const Header: Component = () => {
 						<li>
 							<A
 								href="/"
-								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
+								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
 								{isActive('/') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
@@ -30,7 +30,7 @@ const Header: Component = () => {
 						<li>
 							<A
 								href="/experience"
-								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
+								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
 								{isActive('/experience') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
@@ -40,7 +40,7 @@ const Header: Component = () => {
 						<li>
 							<A
 								href="/about"
-								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
+								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
 								{isActive('/about') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
@@ -60,7 +60,7 @@ const ProfileImage: Component = () => {
 		<img
 			src="/favicon.jpeg"
 			alt="Home"
-			class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-100 transition-colors"
+			class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-100 transition-all duration-300 hover:scale-110 hover:shadow-lg"
 		/>
 	</A>
 }

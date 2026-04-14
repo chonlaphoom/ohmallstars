@@ -21,7 +21,7 @@ const Footer: Component = () => {
 const AllRightsReserved: Component = () => {
 	const currentYear = new Date().getFullYear();
 	return (
-		<p class="text-sm text-gray-500 dark:text-gray-500">&copy; {currentYear} All rights reserved.</p>
+		<p class="text-sm text-gray-500 dark:text-gray-500 font-mono">&copy; {currentYear} All rights reserved.</p>
 	);
 }
 
@@ -29,7 +29,7 @@ const ToggleThemeButton: Component = () => {
 	const { theme, toggleTheme } = useTheme();
 	return (<button
 		onClick={toggleTheme}
-		class="relative inline-flex items-center h-7 w-14 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 transition-colors duration-200 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-700 hover: cursor-pointer"
+		class="relative inline-flex items-center h-7 w-14 rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 transition-all duration-300 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer hover:shadow-md hover-scale"
 		aria-label="Toggle theme"
 	>
 		<span
@@ -55,7 +55,7 @@ const SocialLinks: Component = () => {
 			href="https://github.com/chonlaphoom"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 hover-scale hover:-translate-y-1"
 			aria-label="GitHub profile"
 		>
 			<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -67,7 +67,7 @@ const SocialLinks: Component = () => {
 			href="https://www.linkedin.com/in/chonlaphoomth/"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 hover-scale hover:-translate-y-1"
 			aria-label="LinkedIn profile"
 		>
 			<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -79,7 +79,7 @@ const SocialLinks: Component = () => {
 			href="https://www.instagram.com/ohmallstars/"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+			class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 hover-scale hover:-translate-y-1"
 			aria-label="Instagram profile"
 		>
 			<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

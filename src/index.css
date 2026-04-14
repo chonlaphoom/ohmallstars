@@ -4,6 +4,8 @@
 
 @theme {
   --font-family: 'JetBrains Mono', monospace;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
   --color-gray-900: #111827;
   --color-gray-800: #1f2937;
   --color-gray-700: #374151;
@@ -33,6 +35,11 @@
   }
   
   body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* Explicit mono for terminal/code elements */
+  .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
   
@@ -130,42 +137,44 @@
   background: var(--color-gray-500);
 }
 
-/* ASCII Background Pattern */
-.ascii-bg-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  opacity: 0.03;
-  overflow: hidden;
-  z-index: 0;
+/* Enhanced Interaction Styles */
+
+/* Online status pulse */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
-.ascii-bg-pattern::before {
-  content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  font-size: 12px;
-  line-height: 2;
-  color: currentColor;
-  animation: float-down 20s linear infinite;
-  white-space: pre-wrap;
-  word-break: break-all;
+.status-online {
+  animation: status-pulse 1.5s ease-in-out infinite;
 }
 
-.dark .ascii-bg-pattern {
-  opacity: 0.05;
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes float-down {
-  0% {
-    transform: translateY(-10%);
-  }
-  100% {
-    transform: translateY(10%);
-  }
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover scale for subtle elements */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
