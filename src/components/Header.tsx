@@ -1,12 +1,21 @@
-import { A } from '@solidjs/router';
+import { A, useLocation } from '@solidjs/router';
 import type { Component } from 'solid-js';
 import Container from './Container';
 
 const Header: Component = () => {
+	const location = useLocation();
+	
+	const isActive = (path: string) => {
+		if (path === '/') {
+			return location.pathname === '/';
+		}
+		return location.pathname.startsWith(path);
+	};
+
 	return (
 		<header class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-950 transition-colors">
 			<Container class="py-6">
-				<nav class="flex items-center justify-center gap-6">
+				<nav class="flex items-center justify-center gap-6" role="navigation" aria-label="Main navigation">
 					<ul class="flex items-center gap-4 md:gap-8">
 						<li>
 							<A
@@ -14,6 +23,7 @@ const Header: Component = () => {
 								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
+								{isActive('/') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
 								Home
 							</A>
 						</li>
@@ -23,6 +33,7 @@ const Header: Component = () => {
 								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
+								{isActive('/experience') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
 								Experience
 							</A>
 						</li>
@@ -32,6 +43,7 @@ const Header: Component = () => {
 								class="text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm md:text-base"
 								activeClass="text-gray-900 dark:text-gray-100"
 							>
+								{isActive('/about') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
 								About
 							</A>
 						</li>

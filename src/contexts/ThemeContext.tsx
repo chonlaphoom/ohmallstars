@@ -11,8 +11,6 @@ const ThemeContext = createContext<ThemeContextValue>();
 
 export function ThemeProvider(props: { children: JSX.Element }) {
 	const [theme, setTheme] = createSignal<Theme>('light');
-
-	// Load theme from localStorage on mount
 	onMount(() => {
 		const savedTheme = localStorage.getItem('theme') as Theme | null;
 		if (savedTheme) {

@@ -3,8 +3,11 @@ export default function About() {
 		<div class="max-w-4xl mx-auto px-6 py-16">
 			<div class="space-y-16">
 				<section>
-					<h1 class="text-3xl font-light text-gray-900 dark:text-gray-100 mb-2 cursor-blink">About</h1>
-					<p class="text-gray-600 dark:text-gray-400">A bit about me</p>
+					<div class="text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-500 font-normal mb-2 cursor-blink">
+						<span class="text-gray-600 dark:text-gray-400">$</span> cat about.md
+					</div>
+					<h1 class="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-2">About</h1>
+					<p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">// A bit about me</p>
 				</section>
 
 				<section class="space-y-4">
@@ -26,24 +29,26 @@ export default function About() {
 				</section>
 
 				<section class="space-y-6">
-					<h2 class="text-xl text-gray-900 dark:text-gray-100">What Drives Me</h2>
-					<div class="space-y-4">
+					<h2 class="text-xl text-gray-900 dark:text-gray-100">
+						<span class="text-gray-500 dark:text-gray-500 text-sm">{'{'}</span> What Drives Me <span class="text-gray-500 dark:text-gray-500 text-sm">{'}'}</span>
+					</h2>
+					<div class="space-y-4 pl-4 border-l-2 border-gray-300 dark:border-gray-700">
 						<div>
-							<h3 class="text-gray-900 dark:text-gray-100 mb-1">Continuous Learning</h3>
+							<h3 class="text-gray-900 dark:text-gray-100 mb-1">» Continuous Learning</h3>
 							<p class="text-gray-600 dark:text-gray-400 text-sm">
 								Technology evolves rapidly, and I'm committed to staying current with the latest trends
 								and best practices.
 							</p>
 						</div>
 						<div>
-							<h3 class="text-gray-900 dark:text-gray-100 mb-1">Problem Solving</h3>
+							<h3 class="text-gray-900 dark:text-gray-100 mb-1">» Problem Solving</h3>
 							<p class="text-gray-600 dark:text-gray-400 text-sm">
 								I thrive on tackling challenging problems and finding creative, efficient solutions
 								that make a real impact.
 							</p>
 						</div>
 						<div>
-							<h3 class="text-gray-900 dark:text-gray-100 mb-1">Collaboration</h3>
+							<h3 class="text-gray-900 dark:text-gray-100 mb-1">» Collaboration</h3>
 							<p class="text-gray-600 dark:text-gray-400 text-sm">
 								Great software is built by great teams. I value open communication and knowledge sharing.
 							</p>
@@ -52,19 +57,24 @@ export default function About() {
 				</section>
 
 				<section class="space-y-4">
-					<h2 class="text-xl text-gray-900 dark:text-gray-100">Beyond Code</h2>
+					<h2 class="text-xl text-gray-900 dark:text-gray-100">
+						<span class="text-gray-500 dark:text-gray-500 text-sm">{'{'}</span> Beyond Code <span class="text-gray-500 dark:text-gray-500 text-sm">{'}'}</span>
+					</h2>
 					<ul class="space-y-2 text-gray-700 dark:text-gray-300">
-						<li>Reading tech blogs and books</li>
-						<li>Contributing to open source</li>
-						<li>Attending tech meetups and conferences</li>
-						<li>Experimenting with new frameworks</li>
+						<li>▸ Reading tech blogs and books</li>
+						<li>▸ Contributing to open source</li>
+						<li>▸ Attending tech meetups and conferences</li>
+						<li>▸ Experimenting with new frameworks</li>
 					</ul>
 				</section>
 
 				<section class="pt-8 border-t border-gray-200 dark:border-gray-700">
-					<h2 class="text-xl text-gray-900 dark:text-gray-100 mb-4">Get In Touch</h2>
+					<h2 class="text-xl text-gray-900 dark:text-gray-100 mb-4">
+						<span class="text-gray-500 dark:text-gray-500 text-sm">{'>'}</span> Get In Touch
+					</h2>
 					<p class="text-gray-700 dark:text-gray-300">
-						<a href="mailto:your.email@example.com" class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
+						<span class="text-gray-500 dark:text-gray-500 text-sm">email:</span>{' '}
+						<a href="mailto:chonlaphoomth@gmail.com" class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
 							chonlaphoomth@gmail.com
 						</a>
 					</p>

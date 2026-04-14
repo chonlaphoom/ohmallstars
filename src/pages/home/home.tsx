@@ -4,11 +4,13 @@ import { linkedInPosts } from './data';
 
 export default function Home() {
 	return (
-		<div class="max-w-4xl mx-auto px-6 py-16">
-			<div class="text-center space-y-12">
+		<div class="max-w-4xl mx-auto px-6 py-16 relative">
+			{/* ASCII background pattern */}
+			<div class="ascii-bg-pattern" aria-hidden="true"></div>
+
+			<div class="text-center space-y-12 relative z-10">
 				<section class="space-y-6">
 					<TitleComponent />
-					<SubtitleComponent />
 				</section>
 				<section class="space-y-4 py-8">
 					<DescriptionComponent />
@@ -48,10 +50,19 @@ export default function Home() {
 
 const LinkedInSection = () => {
 	return (
-		<section class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-			<h2 class="text-2xl md:text-3xl font-light text-gray-900 dark:text-gray-100 text-center mb-8 px-6">
-				Recent Posts
-			</h2>
+		<section class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700 relative z-10">
+			<div class="text-center mb-8">
+				<div class="text-xs md:text-sm text-gray-500 dark:text-gray-500 font-normal mb-2">
+					<span class="text-gray-600 dark:text-gray-400">$</span> ls -la linkedin/posts/
+				</div>
+				<h2 class="text-2xl md:text-3xl font-light text-gray-900 dark:text-gray-100">
+					Recent Posts
+				</h2>
+			</div>
+			{/* 
+				Note: LinkedIn iframes may show console warnings about getInstalledRelatedApps().
+				This is a known LinkedIn issue and does not affect functionality.
+			*/}
 			<div class="linkedin-posts-container overflow-x-auto flex gap-4 md:gap-6 pb-4 snap-x snap-mandatory">
 				<For each={linkedInPosts}>
 					{(post, index) => (
@@ -72,29 +83,37 @@ const LinkedInSection = () => {
 	);
 }
 
-const SubtitleComponent = () => {
-	// return (
-	// 	<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-	// 		Software Developer | Tech Enthusiast | Problem Solver
-	// 	</p>
-	// );
-	return null;
-}
-
 const TitleComponent = () => {
 	return (
-		<h1 class="text-4xl md:text-5xl font-light text-gray-900 dark:text-gray-100 cursor-blink">
-			Hi, I'm <span class="font-bold">Chonlaphoom Thaiyanto</span>.
-		</h1>
+		<div class="space-y-2">
+			<div class="text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-500 font-normal cursor-blink">
+				<span class="text-gray-600 dark:text-gray-400">$</span> whoami
+			</div>
+			<h1 class="text-3xl sm:text-4xl md:text-5xl font-light text-gray-900 dark:text-gray-100">
+				<span class="font-bold">Chonlaphoom T.</span>
+			</h1>
+			<div class="text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-500 font-normal">
+				Software Engineer <span class="text-green-600 dark:text-green-400">[ONLINE]</span>
+			</div>
+		</div>
 	);
 }
 
 const DescriptionComponent = () => {
 	return (
-		<p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-			☕ Powered by caffeine and the pursuit of simplicity.
-			I have spent 9 years inch in the software trenches.
-			A slow thinker in a fast world. Yup, I'm the one who reads the manual... twice.</p>
+		<div class="max-w-2xl mx-auto">
+			{/* Hide ASCII box on mobile, show on tablet+ */}
+			<div class="hidden sm:block text-xs text-gray-400 dark:text-gray-600 mb-2">
+				┌─────────────────────────────────────────┐
+			</div>
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed px-4">
+				☕ Powered by caffeine and the pursuit of simplicity.
+				A slow thinker in a fast world. Yup, I'm the one who reads the manual... twice.
+			</p>
+			<div class="hidden sm:block text-xs text-gray-400 dark:text-gray-600 mt-2">
+				└─────────────────────────────────────────┘
+			</div>
+		</div>
 	);
 }
 const LearnMoreComponent = () => {
@@ -103,7 +122,7 @@ const LearnMoreComponent = () => {
 			href="/about"
 			class="inline-block text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
 		>
-			Learn more →
+			Learn more »
 		</A>
 	);
 }
