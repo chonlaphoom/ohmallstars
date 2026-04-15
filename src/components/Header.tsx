@@ -13,7 +13,7 @@ const Header: Component = () => {
 	};
 
 	return (
-		<header class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-950 transition-colors">
+		<header class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-950 transition-colors relative z-10">
 			<Container class="py-6">
 				<nav class="flex items-center justify-center gap-6" role="navigation" aria-label="Main navigation">
 					<ul class="flex items-center gap-4 md:gap-8">

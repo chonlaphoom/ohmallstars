@@ -3,9 +3,8 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-family: 'JetBrains Mono', monospace;
-  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-mono: 'JetBrains Mono', monospace;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --color-gray-900: #111827;
   --color-gray-800: #1f2937;
   --color-gray-700: #374151;
@@ -17,33 +16,21 @@
   --color-gray-100: #f3f4f6;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
+  /* Border compatibility for Tailwind v4 */
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-family-body);
   }
   
-  /* Explicit mono for terminal/code elements */
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-family-mono);
   }
   
-  /* Subtle terminal glow effect for headings and important text */
+  /* Heading glow effect */
   h1, h2, h3 {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
   }
@@ -52,7 +39,7 @@
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
   }
   
-  /* Screen reader only - hides content visually but keeps it accessible */
+  /* Accessibility */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -77,15 +64,18 @@
   }
 }
 
+/* Animations */
 @keyframes blink {
-  0%, 49% {
-    opacity: 1;
-  }
-  50%, 100% {
-    opacity: 0;
-  }
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Terminal cursor */
 .cursor-blink::after {
   content: '|';
   display: inline-block;
@@ -95,7 +85,41 @@
   animation: blink 1s infinite;
 }
 
-/* Custom scrollbar for LinkedIn posts container */
+/* Status indicator */
+.status-online {
+  animation: status-pulse 1.5s ease-in-out infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* LinkedIn scrollbar */
 .linkedin-posts-container {
   scrollbar-width: thin;
   scrollbar-color: var(--color-gray-400) var(--color-gray-100);
@@ -106,7 +130,6 @@
   scrollbar-color: var(--color-gray-600) var(--color-gray-800);
 }
 
-/* Webkit browsers (Chrome, Safari, Edge) */
 .linkedin-posts-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -133,48 +156,24 @@
   background: var(--color-gray-500);
 }
 
-.dark .linkedin-posts-container::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-500);
+/* Terminal background effect */
+.home-terminal-bg {
+  position: relative;
 }
 
-/* Enhanced Interaction Styles */
-
-/* Online status pulse */
-@keyframes status-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+.home-terminal-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(0, 0, 0, 0.04) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(0, 0, 0, 0.04) 39px 40px);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.status-online {
-  animation: status-pulse 1.5s ease-in-out infinite;
-}
-
-/* Hover lift effect */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.dark .hover-lift:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-
-/* Hover scale for subtle elements */
-.hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-/* Better focus states */
-*:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-  border-radius: 2px;
+.dark .home-terminal-bg::before {
+  background-image: 
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(255, 255, 255, 0.03) 39px 40px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(255, 255, 255, 0.03) 39px 40px);
 }

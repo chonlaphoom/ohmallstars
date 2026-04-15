@@ -5,7 +5,7 @@ import Loading from './components/Loading';
 
 const App: Component<{ children: Element }> = (props) => {
 	return (
-		<div class="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors">
+		<div class="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors home-terminal-bg">
 			{/* Skip to main content link for keyboard navigation */}
 			<a
 				href="#main-content"
@@ -14,7 +14,7 @@ const App: Component<{ children: Element }> = (props) => {
 				Skip to main content
 			</a>
 			<Header />
-			<main id="main-content" class="flex-grow" role="main">
+			<main id="main-content" class="flex-grow relative z-10" role="main">
 				<Suspense fallback={<Loading />}>{props.children}</Suspense>
 			</main>
 			<Footer />

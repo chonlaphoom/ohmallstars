@@ -1,6 +1,8 @@
+import Container from '../components/Container';
+
 export default function About() {
 	return (
-		<div class="max-w-4xl mx-auto px-6 py-16">
+		<Container class="py-16">
 			<div class="space-y-16">
 				<section>
 					<div class="text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-500 font-mono font-normal mb-2 cursor-blink">
@@ -80,6 +82,6 @@ export default function About() {
 					</p>
 				</section>
 			</div>
-		</div>
+		</Container>
 	);
 }
