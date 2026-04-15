@@ -62,6 +62,19 @@ src/
 - **Font loading**: Google Fonts preconnect in `index.html` for JetBrains Mono
 - When editing `index.css`, remember Tailwind v4's `@theme` and `@variant` syntax differs from v3
 - **Active nav indicator**: Use `useLocation()` hook to check pathname, not `<A>` children-as-function pattern (causes `isActive` undefined error)
+- **IMPORTANT - Code Cleanup**: When reverting or changing implementations, ALWAYS remove unused CSS, imports, and code. Don't leave orphaned styles or dependencies.
+  - Example: If switching from one markdown library to another, remove old CSS rules
+  - Example: If changing syntax highlighting approach, clean up old theme imports
+  - Keep the codebase clean - no dead code or unused styles
+
+## Markdown Rendering (Blog Page)
+
+- Uses **`marked`** library for markdown parsing + **`highlight.js`** for syntax highlighting
+- Import highlight.js themes via `@import` in `index.css` (not in `index.tsx`)
+- Use separate themes for light/dark mode:
+  - `github.css` for light mode
+  - `github-dark.css` for dark mode
+- Don't manually write syntax highlighting CSS - use built-in highlight.js themes
 
 ## Gotchas
 
