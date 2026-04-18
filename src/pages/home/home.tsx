@@ -10,22 +10,21 @@ export default function Home() {
 				<section class="space-y-6">
 					<TitleComponent />
 				</section>
+				<section class="py-6">
+					<p class="text-center max-w-2xl mx-auto text-gray-700 dark:text-gray-300 leading-relaxed px-4">
+						Hi — I'm Chonlaphoom Thaiyanto, a Bangkok-based software engineer. Welcome to my official site, profile, short essays, and the occasional playful project.
+					</p>
+				</section>
 				<section class="space-y-4 py-8">
 					<DescriptionComponent />
 					<LearnMoreComponent />
 				</section>
 				<section class="flex flex-wrap gap-4 justify-center pt-8">
 					<A
-						href="/experience"
+						href="/hire-me"
 						class="px-6 py-2 border border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 hover:bg-gray-900 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900 transition-all duration-300 no-underline hover-lift shadow-sm font-mono"
 					>
-						Experience
-					</A>
-					<A
-						href="/about"
-						class="px-6 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 no-underline hover-scale font-mono"
-					>
-						About
+						Hire Me
 					</A>
 					<A
 						href="/blogs"
@@ -153,7 +152,7 @@ const DescriptionComponent = () => {
 					┌─────────────────────────────────────────┐
 				</div>
 				<p class="text-gray-700 dark:text-gray-300 leading-relaxed px-4">
-					☕ Powered by caffeine and the pursuit of simplicity.
+					☕ Powered by Caffeine and the pursuit of simplicity.
 					A slow thinker in a fast world. Yup, I'm the one who reads the manual... twice.
 				</p>
 				<div class="hidden sm:block text-xs text-gray-400 dark:text-gray-600 mt-2">
@@ -197,7 +196,7 @@ const DescriptionComponent = () => {
 const LearnMoreComponent = () => {
 	return (
 		<A
-			href="/about"
+			href="/hire-me"
 			class="inline-block text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-all duration-300 hover-scale"
 		>
 			Learn more »

@@ -27,26 +27,26 @@ const Header: Component = () => {
 								Home
 							</A>
 						</li>
-						<li>
-							<A
-								href="/experience"
-								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
-								activeClass="text-gray-900 dark:text-gray-100"
-							>
-								{isActive('/experience') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
-								Experience
-							</A>
-						</li>
-						<li>
-							<A
-								href="/about"
-								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
-								activeClass="text-gray-900 dark:text-gray-100"
-							>
-								{isActive('/about') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
-								About
-							</A>
-						</li>
+                        <li>
+                            <A
+                                href="/hire-me"
+                                class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
+                                activeClass="text-gray-900 dark:text-gray-100"
+                            >
+                                {isActive('/hire-me') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
+                                Hire Me
+                            </A>
+                        </li>
+                        <li>
+                            <A
+                                href="/blogs"
+                                class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
+                                activeClass="text-gray-900 dark:text-gray-100"
+                            >
+                                {isActive('/blogs') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
+                                Blogs
+                            </A>
+                        </li>
 					</ul>
 					<ProfileImage />
 				</nav>
