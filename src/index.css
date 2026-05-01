@@ -158,7 +158,16 @@
   background: var(--color-gray-500);
 }
 
-/* Terminal background effect */
+ /* Hide scrollbar for horizontal scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+ /* Terminal background effect */
 .home-terminal-bg {
   position: relative;
 }

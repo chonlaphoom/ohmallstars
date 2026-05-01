@@ -1,40 +1,33 @@
 import Container from '../../components/Container';
 import { A } from '@solidjs/router';
 import { createSignal, For, Show } from 'solid-js';
-
-interface BlogPost {
-	id: string;
-	title: string;
-	date: string;
-	excerpt?: string;
-	image?: string;
-}
+import { blogPosts, type BlogPost as BlogPostData } from './data';
 
 export default function Blogs() {
-	// Demo posts - replace with your database data
-	const [posts] = createSignal<BlogPost[]>([
-		{
-			id: '1',
-			title: 'Example Blog Post',
-			date: '2024-04-15',
-			excerpt: 'This is a demo showing how markdown rendering works with syntax highlighting. Click to read more...',
-			image: '/placeholder-blog.jpg'
-		},
-		{
-			id: '2',
-			title: 'Getting Started with SolidJS',
-			date: '2024-04-10',
-			excerpt: 'A comprehensive guide to building reactive applications with SolidJS framework.',
-			image: '/placeholder-blog.jpg'
-		},
-		{
-			id: '3',
-			title: 'Terminal-Themed Web Design',
-			date: '2024-04-05',
-			excerpt: 'Exploring retro aesthetics in modern web development with monospace fonts and ASCII art.',
-			image: '/placeholder-blog.jpg'
+	const postsDerived = Object.values(blogPosts).map((p: BlogPostData) => {
+		let excerpt = p.excerpt;
+		if (!excerpt && p.content) {
+			const firstParagraph = p.content
+				.split(/\r?\n/)
+				.map((s) => s.trim())
+				.find((s) => s.length > 0 && !s.startsWith('#') && !s.startsWith('```'));
+			if (firstParagraph) {
+				excerpt = firstParagraph.length > 160 ? `${firstParagraph.slice(0, 157)}…` : firstParagraph;
+			}
 		}
-	]);
+
+		return {
+			id: p.id,
+			title: p.title,
+			date: p.date,
+			excerpt,
+			image: p.image ?? '/placeholder-blog.png',
+		};
+	})
+		// Sort newest first (ISO date strings)
+		.sort((a, b) => b.date.localeCompare(a.date));
+
+	const [posts] = createSignal(postsDerived);
 
 	return (
 		<Container class="py-16">
@@ -50,22 +43,15 @@ export default function Blogs() {
 				<section class="space-y-8">
 					<Show
 						when={posts().length > 0}
-						fallback={
-							<div class="text-gray-700 dark:text-gray-300">
-								<div class="text-xs text-gray-500 dark:text-gray-500 font-mono mb-2">
-									<span class="text-yellow-600 dark:text-yellow-400">[!]</span> No entries found
-								</div>
-								<p>Coming soon...</p>
-							</div>
-						}
+						fallback={<ComingSoon />}
 					>
 						<For each={posts()}>
 							{(post) => (
-								<A
-									href={`/blogs/${post.id}`}
-									class="block group bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden hover:bg-white dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover-lift"
-								>
-									<article class="flex flex-col sm:flex-row gap-6 p-6">
+                <A
+                  href={`/blogs/${post.id}`}
+                  class="block group bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden hover:bg-white dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all hover-lift h-full"
+                >
+                  <article class="flex flex-col sm:flex-row gap-6 p-6 h-full min-h-[180px] sm:min-h-[200px] md:min-h-[220px]">
 										<div class="flex-1 space-y-3">
 											<header class="space-y-2">
 												<h2 class="text-xl sm:text-2xl font-light text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
@@ -76,11 +62,11 @@ export default function Blogs() {
 												</div>
 											</header>
 
-											<Show when={post.excerpt}>
-												<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-													{post.excerpt}
-												</p>
-											</Show>
+                      <Show when={post.excerpt}>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed overflow-hidden max-h-[4.5rem]">
+                          {post.excerpt}
+                        </p>
+                      </Show>
 
 											<div class="text-xs sm:text-sm text-gray-500 dark:text-gray-500 font-mono pt-2">
 												<span class="group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
@@ -117,4 +103,13 @@ export default function Blogs() {
 			</div>
 		</Container>
 	);
+}
+
+const ComingSoon = () => {
+	return (<div class="text-gray-700 dark:text-gray-300">
+		<div class="text-xs text-gray-500 dark:text-gray-500 font-mono mb-2">
+			<span class="text-yellow-600 dark:text-yellow-400">[!]</span> No entries found
+		</div>
+		<p>Coming soon...</p>
+	</div>)
 }

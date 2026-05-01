@@ -16,7 +16,8 @@ const Header: Component = () => {
 		<header class="border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-950 transition-colors relative z-10">
 			<Container class="py-12">
 				<nav class="flex items-center justify-between" role="navigation" aria-label="Main navigation">
-					<ul class="flex items-center gap-4 md:gap-8">
+					<div class="overflow-x-auto hide-scrollbar">
+						<ul class="flex items-center gap-4 md:gap-8 whitespace-nowrap">
 						<li>
 							<A
 								href="/"
@@ -27,27 +28,28 @@ const Header: Component = () => {
 								Home
 							</A>
 						</li>
-                        <li>
-                            <A
-                                href="/hire-me"
-                                class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
-                                activeClass="text-gray-900 dark:text-gray-100"
-                            >
-                                {isActive('/hire-me') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
-                                Hire Me
-                            </A>
-                        </li>
-                        <li>
-                            <A
-                                href="/blogs"
-                                class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
-                                activeClass="text-gray-900 dark:text-gray-100"
-                            >
-                                {isActive('/blogs') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
-                                Blogs
-                            </A>
-                        </li>
+						<li>
+							<A
+								href="/blogs"
+								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
+								activeClass="text-gray-900 dark:text-gray-100"
+							>
+								{isActive('/blogs') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
+								Blogs
+							</A>
+						</li>
+						<li>
+							<A
+								href="/relax"
+								class="font-mono text-gray-600 dark:text-gray-400 no-underline hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300 text-sm md:text-base hover-scale"
+								activeClass="text-gray-900 dark:text-gray-100"
+							>
+								{isActive('/relax') && <span class="text-gray-500 dark:text-gray-500 mr-1" aria-hidden="true">{'>'}</span>}
+								Relax
+							</A>
+						</li>
 					</ul>
+					</div>
 					<ProfileImage />
 				</nav>
 			</Container>
@@ -72,7 +74,7 @@ const ProfileImage: Component = () => {
 			that's me, laughing
 		</span>
 		{/* Popup for small screens */}
-		<span 
+		<span
 			class={`absolute right-0 -top-10 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 text-xs font-mono italic px-3 py-1.5 rounded whitespace-nowrap transition-opacity duration-300 sm:hidden ${showPopup() ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
 		>
 			that's me, laughing
