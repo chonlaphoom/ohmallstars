@@ -2,11 +2,14 @@
 
 A minimal, terminal-inspired portfolio website showcasing my professional journey and projects.
 
-## Design Philosophy
+## Tech Stack
 
-**Professional yet playful** - Built with a vintage terminal aesthetic using ASCII elements, monospace fonts, and a clean grayscale palette. The design embraces simplicity while maintaining a developer-focused personality through subtle terminal touches like blinking cursors, command prompts, and ASCII decorations.
-
-**Dark mode first** - Seamless theme switching with localStorage persistence, supporting both light and dark modes with carefully chosen contrast ratios for optimal readability.
+- **SolidJS** - Reactive UI framework
+- **@solidjs/router** - Client-side routing with lazy loading
+- **Tailwind CSS v4** - Utility-first styling with PostCSS integration
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool with SolidJS plugin
+- **Markdown rendering** - `marked` + `highlight.js` for blog posts
 
 ## Getting Started
 
@@ -16,13 +19,13 @@ npm run dev      # Development server
 npm run build    # Production build
 ```
 
-## Project Structure
+## Pages
 
-- **Home** - Introduction with recent LinkedIn posts
-- **Experience** - Professional journey timeline
-- **About** - Personal background and interests
-- **Blogs** - Coming soon
-- **Gallery** - Coming soon
+- **Home** (`/`) - Introduction with recent LinkedIn posts
+- **Hire Me** (`/hire-me`) - Professional hiring information
+- **Blogs** (`/blogs`) - Technical articles and posts with markdown rendering
+- **Relax** (`/relax`) - A space to unwind
+- **404** - Custom not found page
 
 ---
 
